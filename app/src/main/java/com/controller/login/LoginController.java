@@ -16,6 +16,7 @@ public class LoginController {
         User user = null;
         if(number!=null){
             user = userMapper.selectUserByNumber(number);
+            System.out.println("lwx");
         }
 
         return user;
