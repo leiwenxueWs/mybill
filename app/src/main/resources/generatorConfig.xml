@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 通过maven插件的形式生成代码，目标mybatis-generator:generate，生成的Mapper中的数据库名和表名之间的".."要手动替换成"." -->
+	<context id="context1" defaultModelType="flat">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://172.21.139.13:3314/clue?characterEncoding=UTF8"
+			userId="chaikuweishi" password="testweishi" />
+		<!-- JavaTypeResolverGSXImpl对mysql到java的类型转换进行了个性化处理，日期类型转换为LocalDate，smallint、tinyint转换为Integer -->
+		<javaTypeResolver>
+			<!--type="com.baijia.support.mybatis.generator.JavaTypeResolverGSXImpl"-->
+			<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+			<property name="forceBigDecimals" value="false" />
+			<!-- 时间类型是否使用LocalDateTime -->
+			<property name="useLocalDateTime" value="true" />
+			<!-- 是否强制转换smallint和tinyint为Integer类型 -->
+			<property name="forceInteger" value="true" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.baijia.haoke.leads.core.model.auto"
+			targetProject="src/main/java">
+			<!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.baijia.haoke.leads.core.mapper.auto"
+			targetProject="src/main/java">
+		</sqlMapGenerator>
+		<javaClientGenerator targetPackage="com.baijia.haoke.leads.core.mapper.auto"
+			targetProject="src/main/java" type="XMLMAPPER">
+		</javaClientGenerator>
+		<table catalog="clue" tableName="leads_operation" />
+	</context>
+</generatorConfiguration>
