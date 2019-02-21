@@ -1,7 +1,8 @@
 package com.controller.login;
 
-import com.dto.User;
-import com.mapper.UserMapper;
+import com.google.common.collect.Lists;
+import com.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,15 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
-    UserMapper userMapper;
-    @RequestMapping("/user")
-    public User get(Long number){
-        User user = null;
-        if(number!=null){
-            user = userMapper.selectUserByNumber(number);
-            System.out.println("lwx");
-        }
+    private UserService userService;
 
-        return user;
+    @RequestMapping(value = "/isHadUserNumber")
+    public boolean isHadUserNumber(@Param("userNumber") long userNumber){
+        return userService.isHadUserNumber(Lists.newArrayList(userNumber));
     }
+
 }
