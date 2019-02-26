@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.dto.CreateUserDto;
 import com.google.common.collect.Lists;
 import com.mapper.auto.UserMapper;
 import com.model.auto.User;
@@ -23,6 +24,11 @@ public class UserDao {
     @Autowired
     private UserMapper userMapper;
 
+    /**
+     * 根据userNumber查询User信息
+     * @param userNumbers
+     * @return
+     */
     public List<User> selectUserByUserNumber(List<Long> userNumbers){
         if(userNumbers.isEmpty()){
             return Lists.newArrayList();
@@ -32,4 +38,9 @@ public class UserDao {
         criteria.andUserNumberIn(userNumbers);
         return userMapper.selectByExample(example);
     }
+
+    public int insertUser(User user){
+        return userMapper.insertSelective(user);
+    }
+
 }
