@@ -28,6 +28,8 @@
 		<javaClientGenerator targetPackage="com.mapper.auto"
 			targetProject="src/main/java" type="XMLMAPPER">
 		</javaClientGenerator>
-		<table catalog="bill" tableName="user" />
+		<table catalog="bill" tableName="object" />
+		<table catalog="bill" tableName="column" />
+		<table catalog="bill" tableName="content" />
 	</context>
 </generatorConfiguration>
