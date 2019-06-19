@@ -1,0 +1,2 @@
+2019-04-25 10:14:43,680 org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-12] (AbstractApplicationContext.java:984) INFO  --> Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@130f889: startup date [Wed Apr 24 13:43:23 CST 2019]; root of context hierarchy
+2019-04-25 10:14:43,769 org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-12] (MBeanExporter.java:449) INFO  --> Unregistering JMX-exposed beans on shutdown
