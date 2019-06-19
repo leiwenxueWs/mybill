@@ -3,8 +3,10 @@ package com.service.impl;
 import com.dao.UserDao;
 import com.dto.CreateUserDto;
 import com.dto.LoginDto;
+import com.dto.common.AddUserAccountRelationDto;
 import com.google.common.collect.Lists;
 import com.model.auto.User;
+import com.model.auto.UserAccountRelation;
 import com.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -50,5 +52,18 @@ public class UserServiceImpl implements UserService {
             return 0;
         }
         return userDao.insertUser(user);
+    }
+
+    @Override
+    public int addUserAccountRelation(AddUserAccountRelationDto addUserAccountRelationDto) {
+        //TODO 判断是否已经存在关系
+        UserAccountRelation userAccountRelation = new UserAccountRelation();
+        BeanUtils.copyProperties(addUserAccountRelationDto,userAccountRelation);
+        return userDao.insertUserAccountRelation(userAccountRelation);
+    }
+
+    @Override
+    public int deleteUserAccountRelation(long accountNumber) {
+        return userDao.deleteUserAccountRelationByAccountNumber(accountNumber);
     }
 }

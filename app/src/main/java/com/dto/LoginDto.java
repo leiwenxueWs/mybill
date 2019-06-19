@@ -6,7 +6,7 @@ import lombok.Data;
  * @author leiwenxue
  * @version 1.0
  * @ClassName LoginDto
- * @desc TODO
+ * @desc LoginDto
  * @date 2019/2/21 上午11:34
  */
 @Data
